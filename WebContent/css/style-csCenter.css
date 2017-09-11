@@ -1,0 +1,373 @@
+@charset "EUC-KR";
+.hidden{
+	display: none;
+}
+
+.clearfix::after {
+	content: "";
+	clear: left;
+	display: block;
+	clear: both;
+    display : block;
+    celar :right;
+} 
+
+.content-container{
+	
+	min-height: inherit;
+	height: 100%;
+	width: 1400px;
+	margin: auto;
+	background: inherit;
+}
+
+/* --------------------------------------------------- */
+
+
+#home {
+	color: navy;
+}
+
+#header{
+	min-height: 150px;
+	background: #ffffff;
+}
+
+	#header a{
+		float: left;
+		padding-left: 10px;
+		padding-top: 30px;
+	}
+	
+	#header li{
+		float: left;
+		padding-left: 10px;
+		padding-top: 50px;
+	}
+	
+			#head-main-menu{
+	      display: inline-block;
+	      padding-top: 10px;
+	   	}
+	   
+	     	#head-main-menu ul{
+	         overflow: auto;
+	      	}
+	   
+	     	#head-main-menu li{
+	 
+	         float: left;
+	         padding-left: 10px;
+ 
+	        font-family: ¸¼Àº °íµñ, °íµñ, sans-selif;
+	         font-size: 25px;
+	         font-weight: bold;
+	      }
+/* 	      #head-main-menu li :first-child{
+	      	padding-left: 150px;
+	      } */
+
+	      
+	
+	
+	
+	
+/* --------------------------------------------------- */
+
+#body{
+	min-height: 723px;
+	width: 100%;
+	margin-bottom: 50px;
+}
+
+	#body ul, a{
+		padding-left: 100px;
+		padding-top: 250px;
+	}
+	
+	#aside {
+		min-height: inherit;
+		width: 30%;
+		background: url("");
+		margin-bottom: 50px;
+		padding-top: 30px;
+		float: left;
+		background: #ffffff url("../images/bg-aside-title.png") no-repeat left top; 
+	}
+
+      	#aside ul{
+         overflow: auto;
+      }
+   
+    	 #aside li{
+
+ 
+        font-family: ¸¼Àº °íµñ, °íµñ, sans-selif;
+         font-size: 25px;
+         font-weight: bold;
+      }
+      
+ /*---------------------------------------------------  */     
+	#main{
+
+		min-height: inherit;
+		width: 70%;
+	 	background: url(""); 
+		margin-bottom: 50px;
+		float: left;
+		 background: #ffff80; 
+	}
+
+		.main-list{
+	      display: inline-block;
+	      padding-top: 10px;
+	   	}
+	   
+	     	.main-list ul{
+	         overflow: auto;
+	      	}
+	   
+	     	.main-list li{
+	 
+	         float: left;
+	         padding-left: 300px;
+	         background: url("../images/bg-list.PNG") repeat  center; 
+	         
+	        font-family: ¸¼Àº °íµñ, °íµñ, sans-selif;
+	         font-size: 25px;
+	         font-weight: bold;
+	      }
+	      
+	      .main-list li:first-child{
+	         padding-left: 10px;
+	
+	      }
+	
+	      .main-list li:last-child{
+	         padding-left: 150px;
+	         padding-right: 10px;
+	
+	      }
+	      
+
+	 #personInfoName{
+	 	font : ¸¼Àº °íµñ;
+	 	font-size: 20px;
+	 	padding: 30px;
+	 	
+	 }
+	#personInfo{
+		padding-left:20px;
+		padding-bottom:10px;
+		font : ¸¼Àº °íµñ;
+		font-size: 20px;
+
+	} 
+		#personInfo > * :first-child{
+			background: #e3fafd;
+			font-style: bold;
+			font-style: italic;
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+		#personInfo > * :last-child{
+			background: #ffffff;
+			padding-left: 5px;
+			padding-right: 5px;
+			text-align :right;
+	
+		}
+/* <!-- ------------------- --!>	 */	
+	 #doctorInfoName{
+	 	font : ¸¼Àº °íµñ;
+	 	font-size: 20px;
+	 	padding: 30px;
+	 	
+	 }
+	#doctorInfo{
+		padding-left:20px;
+		padding-bottom:10px;
+		font : ¸¼Àº °íµñ;
+		font-size: 20px;
+
+	} 
+		#doctorInfo > * :first-child{
+			background: #e3fafd;
+			font-style: bold;
+			font-style: italic;
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+		#doctorInfo > * :last-child{
+			background: #ffffff;
+			padding-left: 5px;
+			padding-right: 5px;
+			text-align :right;
+	
+		}	 
+/* <!-- ------------------- --!>	 */	
+#pwChangeName	{
+ 	font : ¸¼Àº °íµñ;
+ 	font-size: 20px;
+ 	padding: 30px;
+}
+#pwChange{
+		padding-left:20px;
+		padding-bottom:10px;
+		font : ¸¼Àº °íµñ;
+		font-size: 20px;
+}
+		#pwChange > * :first-child{
+			background: #e3fafd;
+			font-style: bold;
+			font-style: italic;
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+		#pwChange > * :last-child{
+			background: #ffffff;
+			padding-left: 5px;
+			padding-right: 5px;
+			text-align :right;
+	
+		}
+
+ /* <!-- ------------------- --!>	 */	
+ 
+ #counselingName	{
+ 	font : ¸¼Àº °íµñ;
+ 	font-size: 20px;
+ 	padding: 30px;
+}
+#counseling{
+		padding-left:20px;
+		padding-bottom:10px;
+		font : ¸¼Àº °íµñ;
+		font-size: 20px;
+
+}
+
+	#counseling >*{
+			background: #ffffff;
+			padding-left: 5px;
+			padding-right: 5px;
+	
+	}
+		#counselingTable{
+			background: #e3fafd;
+			font-style: bold;
+			font-style: italic;
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+/* 		#counseling > * :last-child{
+			background: #ffffff;
+			padding-left: 5px;
+			padding-right: 5px;
+			text-align :right;
+	
+		} */
+
+ /* <!-- ------------------- --!>	 */	
+ 
+  #counselingRepleName	{
+ 	font : ¸¼Àº °íµñ;
+ 	font-size: 20px;
+ 	padding: 30px;
+}
+#counselingReple{
+		padding-left:20px;
+		padding-bottom:10px;
+		font : ¸¼Àº °íµñ;
+		font-size: 20px;
+
+}
+
+	#counselingReple >*{
+			background: #ffffff;
+			padding-left: 5px;
+			padding-right: 5px;
+	
+	}
+		#counselingRepleTable{
+			background: #e3fafd;
+			font-style: bold;
+			font-style: italic;
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+/* 		#counselingReple > * :last-child{
+			background: #ffffff;
+			padding-left: 5px;
+			padding-right: 5px;
+			text-align :right;
+	
+		} */
+
+
+
+
+
+ /* <!-- ------------------- --!>	 */	
+ 
+   #myLetterName	{
+ 	font : ¸¼Àº °íµñ;
+ 	font-size: 20px;
+ 	padding: 30px;
+}
+#myLetter{
+		padding-left:20px;
+		padding-bottom:10px;
+		font : ¸¼Àº °íµñ;
+		font-size: 20px;
+
+}
+
+	#myLetter >*{
+			background: #ffffff;
+			padding-left: 5px;
+			padding-right: 5px;
+	
+	}
+		#myLetterTable{
+			background: #e3fafd;
+			font-style: bold;
+			font-style: italic;
+			padding-left: 5px;
+			padding-right: 5px;
+		}
+/* 		#myLetter > * :last-child{
+			background: #ffffff;
+			padding-left: 5px;
+			padding-right: 5px;
+			text-align :right;
+	
+		} */
+
+ /* <!-- ------------------- --!>	 */	
+ 
+ 
+ 
+ 
+ 
+#insert-main-list{
+	 background: url("../images/bg-letter-insert.PNG") no-repeat  center; 
+	
+}
+
+/* --------------------------------------------------- */
+
+#footer{
+	min-height: 35px;
+	background: #d0d0d0;
+	/* position: absolute; */
+}
+
+	#footer div{
+		padding-top: 12px;
+		background: #d0d0d0;
+	}
+	
+	#footer ul{
+		float: right;
+	}

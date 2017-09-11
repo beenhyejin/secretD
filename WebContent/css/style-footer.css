@@ -1,0 +1,22 @@
+@charset "UTF-8";
+#footer{
+	min-height: 50px;
+	min-width: 1024px;
+	
+	width:100%;
+	height:auto;
+	position: fixed;
+	bottom:0px;
+	left:0px;
+	background: #3a3a30;
+
+}
+
+	#footer p{
+		text-align: center;
+		padding-right: 10px;
+		padding-top: 13px;
+		font-family: ���� ���,���, sans-selif;
+		color: white;
+
+	}

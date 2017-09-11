@@ -1,0 +1,89 @@
+@charset "EUC-KR";
+.hidden{
+	display: none;
+}
+
+.clearfix::after {
+	content: "";
+	clear: left;
+	display: block;
+	clear: both;
+    display : block;
+} 
+
+.content-container{
+	
+	min-height: inherit;
+	height: 100%;
+	width: 1400px;
+	margin: auto;
+	background: inherit;
+}
+
+/* --------------------------------------------------- */
+
+
+#home {
+	color: navy;
+}
+
+#header{
+	min-height: 150px;
+	background: #ffffff;
+}
+
+	#header a{
+		float: left;
+		padding-left: 10px;
+		padding-top: 30px;
+	}
+	
+	#header li{
+		float: left;
+		padding-left: 10px;
+		padding-top: 50px;
+	}
+	
+/* --------------------------------------------------- */
+
+#body{
+	min-height: 723px;
+	width: 100%;
+	background: #53abcf;
+	margin-bottom: 50px;
+}
+
+	#body ul, a{
+		padding-left: 100px;
+		padding-top: 250px;
+	}
+
+	#body .content-container{
+	 	background: url("../images/bg-survey-start.png") no-repeat right bottom;
+	}
+
+/* --------------------------------------------------- */
+
+#footer{
+	min-height: 50px;
+	min-width: 1024px;
+	
+	width:100%;
+	height:auto;
+	position: fixed;
+	bottom:0px;
+	left:0px;
+	background: #3a3a30;
+	/* min-height: 35px;
+	background: #d0d0d0;
+	position: absolute; */
+}
+
+	#footer div{
+		padding-top: 12px;
+		background: #d0d0d0;
+	}
+	
+	#footer ul{
+		float: right;
+	}

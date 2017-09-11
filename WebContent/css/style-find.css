@@ -1,0 +1,236 @@
+.clearfix::after {
+	content: "";
+	clear: left;
+	display: block;
+	clear: both;
+    display : block;
+}
+
+
+.id-find-main{
+	width: inherit;
+	height: 100%;
+	position : relative;
+	top:105px;
+	background: #a8c4e6;
+	border-bottom: 3px solid #2281df;
+	margin-bottom: 3px;
+}
+.find-form{
+		border : 1px solid #e9e9e9;
+		padding : 10px;
+}
+.id-find-form{
+	padding-top : 15px;
+	padding-bottom: 15px;
+}
+.find-next{
+	padding : 10px;
+	padding-left:300px;
+	width: 20%;
+	height: 105px;
+	display: inline-block;
+	cursor: pointer;
+	border: 1px solid transparent;
+	border-radius: 15px;
+}
+#id-find-pw-find{
+	width: 700px;;
+	height: 30px;
+	position: relative;
+	left:34%;
+	padding-top:10px;
+	/* border-bottom: 3px solid #008000; */
+
+	
+}
+#id-find-pw-find a{
+	padding-right: 10px;
+	font: 맑은 고딕;
+	font-size: 15px;
+	
+}
+#id-find-pw-find :first-child{
+	font-color: white;
+}
+#id-find-form{
+	min-height: 500px;
+	min-width: 600px;
+	width: 670px;
+	top:143px;
+
+	border-radius: 4px;
+	position: absolute;
+	left: 32%;
+	padding-top: 3%;
+	padding-left: 2%;
+}
+#id-find-form h2{
+	font-size : 20px;
+	font-style:bold;
+	padding-top: 0px;
+	padding-bottom: 4px;
+	border-bottom: 2px solid #0a0a65;
+	margin-bottom: 5px;
+}
+#id-find-form h3{
+	margin-bottom: 20px;
+}
+.phone-text {
+	margin-top:5px;
+	position: relative;
+	left: 5%;
+	float: left;
+}
+.email-text {
+	padding-top : 5px;
+	position: relative;
+	 left: 5%; 
+	float: left;
+}
+
+.phone-text .id-find-phone-label {
+	/* position: relative;
+	left: 10px; */
+	text-align: left;
+	font-size: 15px;
+	font-style:bold;
+	font-family: 맑은 고딕, 고딕, sans-selif;
+	margin-right: 5px;
+	float: left;
+	line-height: 250%
+}
+.id-find-phone-input {
+	width: 500px;
+	float: left;
+}
+.phone-text  input[type="text"] {
+	width: 300px;
+	height: 25px;
+	border: 2px solid #b4b1b1;
+	line-height: 200%;
+	margin: 5px;
+
+}
+.asr {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.whatfind{
+	padding-top:10px;
+}
+
+
+
+.email-text .id-find-email-label {
+	/* position: relative;
+	left: 10px; */
+	text-align: left;
+	font-size: 15px;
+	font-style:bold;
+	font-family: 맑은 고딕, 고딕, sans-selif;
+	margin-right: 5px;
+	float: left;
+	line-height: 250%
+}
+.id-find-email-input {
+	width: 500px;
+	float: left;
+}
+.email-text  input[type="text"] {
+	width: 300px;
+	height: 25px;
+	border: 2px solid #b4b1b1;
+	line-height: 200%;
+	margin: 5px;
+
+}
+
+
+/* -------비밀번호 찾기--------- */
+
+#pw-find-form{
+	min-height: 500px;
+	min-width: 600px;
+	width: 670px;
+	
+	background: #f2f2f2;
+	border-radius: 4px;
+	position: absolute;
+	left: 34%;
+	padding-top: 3%;
+	padding-left: 2%;
+}
+#pw-find-form h2{
+	padding-top: 0px;
+	padding-bottom: 4px;
+	width : 300px;
+	border-bottom: 3px solid red;
+	margin-bottom: 5px;
+}
+#pw-find-form h3{
+	margin-bottom: 10px;
+}
+
+
+
+#pw-find-form input{
+	float: left;
+	padding-right: 5px;
+	margin-right: 5px;
+}
+
+.pw-find-form  input[type="text"] {
+	width: 300px;
+	height: 25px;
+	border: 2px solid #b4b1b1;
+	line-height: 200%;
+	margin: 5px;
+
+}
+.pw-find-form  input[type="submit"] {
+	width: 30px;
+	height: 30px;
+	border: 1px solid #b4b1b1;
+	background : none;
+	line-height: 200%;
+	margin: 3px;
+	cursor: pointer;
+
+}
+
+
+
+
+.id-input{
+	width: 50px;
+	height: 20px;
+}
+
+/* ------------아이디 찾은 목록----- */
+.pw-find-info {
+	width : inherit-30px;
+	height: 150px;
+	border: 3px solid #e9e9e9;
+	padding-top: 15px;
+	padding-left : 30px;
+	margin-bottom: 10px;
+}
+.id-find-list{
+	margin-top:50px;
+	padding-left:50px;
+	font-size:20px;
+	font :맑은 고딕;
+	
+}
+.pw-find-info input{
+	margin-top:50px;
+	padding-left:50px;
+	font :맑은 고딕;
+}
+ .pw-find-info label{
+	padding-left:15px;
+	font :맑은 고딕;
+} 
+
