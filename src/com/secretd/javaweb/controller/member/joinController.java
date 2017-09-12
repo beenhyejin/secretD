@@ -23,7 +23,7 @@ public class joinController extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		
+
 		String id = "";
 		String pwd = "";
 		String name = "";
@@ -51,37 +51,40 @@ public class joinController extends HttpServlet {
 		if (_nickname != null && !_nickname.equals(""))
 			nickname = _nickname;
 
-		// 비밀번호 재확인
-		if (_pwds[0].equals(_pwds[1])&&!_pwds[0].equals("")) {
-			pwd = _pwds[0];
-			if (id.equals("") || pwd.equals("") || name.equals("") || email.equals("") || nickname.equals("")) {
-				System.out.println("회원정보모두입력해줘");
-				out.println("<script language='javascript'>");
-				out.println("alert('회원정보를 모두 입력해주세요.'); history.go(-1);");
-				out.println("</script>");
-				out.flush();
-				
-			} else {
-				System.out.println("MemberDao에 들어왔어~");
-				// -------------------DB(dao)-----------------------------------
-				MemberDao memberDao = new JdbcMemberDao();
-				int result = memberDao.insert(id, pwd, name, email, nickname);
-				if (result==1)
-					response.sendRedirect("sucess");
-				else
-					response.sendRedirect("sucess?error=" + result);
-			}
-			
-		}
-		else if (!_pwds[0].equals(_pwds[1])) {
-			System.out.println("비밀번호 확인해줘");		
+		if (id.equals("") || _pwds[0].equals("") || _pwds[1].equals("") || name.equals("") || email.equals("")
+				|| nickname.equals("")) {
+			System.out.println("회원정보모두입력해줘");
 			out.println("<script language='javascript'>");
-			out.println("alert('비밀번호를 다시 확인해주세용~!'); history.go(-1);");
+			out.println("alert('회원정보를 모두 입력해주세요.'); history.go(-1);");
 			out.println("</script>");
 			out.flush();
 		}
 
-		
+		// 비밀번호 재확인
+		if (_pwds[0].equals(_pwds[1]) && !_pwds[0].equals("")) {
+			pwd = _pwds[0];
+			System.out.println("MemberDao에 들어왔어~");
+			// -------------------DB(dao)-----------------------------------
+			MemberDao memberDao = new JdbcMemberDao();
+			int result = memberDao.insert(id, pwd, name, email, nickname);
+			System.out.println("result" + result);
+			if (result == 1)
+				response.sendRedirect("sucess");
+			else{
+				System.out.println("db회원가입 실패");
+				out.println("<script language='javascript'>");
+				out.println("alert('죄송합니다. 회원가입중 오류가 생겼습니다.\n 다시 시도해주세요.'); history.go(-1);");
+				out.println("</script>");
+				out.flush();
+			}
+		}
+		else if (!_pwds[0].equals(_pwds[1])&& !_pwds[0].equals("")&& !_pwds[1].equals("")) {
+			System.out.println("비밀번호가 일치하는지 확인해줘");
+			out.println("<script language='javascript'>");
+			out.println("alert('비밀번호가 일치하는지 확인해주세요!'); history.go(-1);");
+			out.println("</script>");
+			out.flush();
+		}
 
 	}
 
