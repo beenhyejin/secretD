@@ -13,5 +13,5 @@ public interface NoticeDao {
 	void edit(String id, String title, String content);
 	void insert(String title, String content);
 	void delete(String id);
-	void getHitsCountup(int hits);
+	void getHitsCountup(int hits,String id);
 }

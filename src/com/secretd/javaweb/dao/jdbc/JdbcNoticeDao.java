@@ -173,15 +173,16 @@ public class JdbcNoticeDao implements NoticeDao {
 	}
 
 	@Override
-	public void getHitsCountup(int hits) {
-		hits++;
-		String sql = "UPDATE Notice SET hits= ? where id =?";
+	public void getHitsCountup(int hit,String id) {
+		hit++;
+		String sql = "UPDATE Notice SET hit= ? where id =?";
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url, "sist", "cclass");
 			PreparedStatement st = con.prepareStatement(sql);
-			st.setInt(1, hits);
+			st.setInt(1, hit);
+			st.setString(2, id);
 			int result = st.executeUpdate();
 			st.close();
 			con.close();
