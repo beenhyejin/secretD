@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.secretd.javaweb.dao.NoticeDao;
+import com.secretd.web.entity.Notice;
 import com.secretd.web.entity.NoticeView;
 
 public class JdbcNoticeDao implements NoticeDao {
@@ -17,28 +18,17 @@ public class JdbcNoticeDao implements NoticeDao {
 	public List<NoticeView> getList(int page, String query) {
 		List<NoticeView> list = null;
 		String sql = "SELECT * FROM NoticeView WHERE title like ? order by regDate DESC limit ?,10";
-		String url = "jdbc:mysql://211.238.142.247/soonfacedb?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
 		int offset = (page - 1) * 10;
-		// JDBC �뱶�씪�씠踰� 濡쒕뱶
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-
-			// �뿰寃� / �씤利�
-			Connection con = DriverManager.getConnection(url, "soonface", "2014");
-
-			// �떎�뻾
+			Connection con = DriverManager.getConnection(url, "sist", "cclass");
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, "%" + query + "%");
 			st.setInt(2, offset);
-
-			// 寃곌낵 媛��졇�삤湲�
 			ResultSet rs = st.executeQuery();
-
-			// Model
 			list = new ArrayList<>();
-
-			// 寃곌낵 �궗�슜�븯湲�
 			while (rs.next()) {
 				NoticeView n = new NoticeView();
 				n.setId(rs.getString("ID"));
@@ -49,7 +39,6 @@ public class JdbcNoticeDao implements NoticeDao {
 				n.setContent(rs.getString("CONTENT"));
 				n.setRegDate(rs.getDate("REGDATE"));
 				n.setCountCmt(rs.getInt("countCmt"));
-
 				list.add(n);
 			}
 			rs.close();
@@ -69,27 +58,13 @@ public class JdbcNoticeDao implements NoticeDao {
 		String sqlCount = "SELECT COUNT(id) as count FROM Notice";
 
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
-
-		// JDBC �뱶�씪�씠踰� 濡쒕뱶
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-
-			// �뿰寃� / �씤利�
 			Connection con = DriverManager.getConnection(url, "sist", "cclass");
-
-			// �떎�뻾
 			Statement stCount = con.createStatement();
-
-			// 寃곌낵 媛��졇�삤湲�
 			ResultSet rsCount = stCount.executeQuery(sqlCount);
-
 			rsCount.next();
-
-			// Model
 			count = rsCount.getInt("count");
-
-			// 寃곌낵 �궗�슜�븯湲�
-
 			rsCount.close();
 			stCount.close();
 			con.close();
@@ -103,24 +78,18 @@ public class JdbcNoticeDao implements NoticeDao {
 	}
 
 	@Override
-	public NoticeView get(String id) {
+	public Notice get(String id) {
 
-		// ------------------異쒕젰-----------------
 		NoticeView n = null;
 		String sql = "SELECT * FROM NoticeView WHERE id = ?";
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 
-		// JDBC �뱶�씪�씠踰� 濡쒕뱶
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			// �뿰寃� / �씤利�
 			Connection con = DriverManager.getConnection(url, "sist", "cclass");
-			// �떎�뻾
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, id);
-			// 寃곌낵 媛��졇�삤湲�
 			ResultSet rs = st.executeQuery();
-			// 寃곌낵 �궗�슜�븯湲�
 			if (rs.next()) {
 				n = new NoticeView();
 				n.setId(rs.getString("ID"));
@@ -129,8 +98,6 @@ public class JdbcNoticeDao implements NoticeDao {
 				n.setContent(rs.getString("CONTENT"));
 				n.setRegDate(rs.getDate("REGDATE"));
 				n.setWriterId(rs.getString("WRITERID"));
-				n.setWriterName(rs.getString("WRITERNAME"));
-				n.setCountCmt(rs.getInt("COUNTCMT"));
 			}
 			rs.close();
 			st.close();
@@ -147,18 +114,14 @@ public class JdbcNoticeDao implements NoticeDao {
 	public void edit(String id, String title, String content) {
 		String sql = "UPDATE Notice SET title= ?,content = ? WHERE id = ?";
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
-		// JDBC �뱶�씪�씠踰� 濡쒕뱶
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			// �뿰寃� / �씤利�
 			Connection con = DriverManager.getConnection(url, "sist", "cclass");
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, title);
 			st.setString(2, content);
 			st.setString(3, id);
 			int result = st.executeUpdate();
-			if (result == 1)
-				System.out.println("�닔�젙�셿猷�");
 			st.close();
 			con.close();
 		} catch (ClassNotFoundException e) {
@@ -178,10 +141,8 @@ public class JdbcNoticeDao implements NoticeDao {
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, title);
 			st.setString(2, content);
-			st.setString(3, "robin");// !!!!!濡쒓렇�씤�븳 �븘�씠�뵒濡� 諛붽씀湲�
+			st.setString(3, "robin");
 			int result = st.executeUpdate();
-			if(result==1)
-				System.out.println("湲��벑濡� �셿猷�");
 			st.close();
 			con.close();
 		} catch (ClassNotFoundException e) {
@@ -195,16 +156,12 @@ public class JdbcNoticeDao implements NoticeDao {
 	public void delete(String id) {
 		String sql = "DELETE FROM Notice WHERE id = ?";
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
-		// JDBC �뱶�씪�씠踰� 濡쒕뱶
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			// �뿰寃� / �씤利�
 			Connection con = DriverManager.getConnection(url, "sist", "cclass");
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, id);
 			int result = st.executeUpdate();
-			if (result == 1)
-				System.out.println("�궘�젣�셿猷�");
 			st.close();
 			con.close();
 		} catch (ClassNotFoundException e) {
@@ -213,5 +170,25 @@ public class JdbcNoticeDao implements NoticeDao {
 			e.printStackTrace();
 		}
 		
+	}
+
+	@Override
+	public void getHitsCountup(int hits) {
+		hits++;
+		String sql = "UPDATE Notice SET hits= ? where id =?";
+		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con = DriverManager.getConnection(url, "sist", "cclass");
+			PreparedStatement st = con.prepareStatement(sql);
+			st.setInt(1, hits);
+			int result = st.executeUpdate();
+			st.close();
+			con.close();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }

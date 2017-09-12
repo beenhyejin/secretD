@@ -29,9 +29,9 @@ public class LoginController extends HttpServlet {
 		Member member = memberDao.get(id);
 
 		if (member == null)
-			response.sendRedirect("login?error1");
+			response.sendRedirect("login?error=1");
 		else if (!member.getPwd().equals(pwd))
-			response.sendRedirect("login?error2");
+			response.sendRedirect("login?error=2");
 		else {
 			request.getSession().setAttribute("id", id);
 			String url = request.getParameter("returnURL");

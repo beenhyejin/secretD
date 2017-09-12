@@ -19,18 +19,16 @@ import com.secretd.web.entity.NoticeView;
 public class NoticeListcontroller extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int page = 1; //기본값		
+		int page = 1; 	
 		String  _page = request.getParameter("p"); 	
 		if(_page != null && !_page.equals(""))
 			page=Integer.parseInt(_page);	
 		String  _query = request.getParameter("title"); 
-		String query = ""; // 기본값
+		String query = ""; 
 		if(_query != null && !_query.equals(""))
 			query=_query;
-		//------------------출력-----------------
-		List<NoticeView> list= null; 
+		List<NoticeView> list= null; 	
 		int count=0;		
-		//---------------DB(DAO)--------------------
 		NoticeDao noticeDao = new JdbcNoticeDao();
 		list = noticeDao.getList(page, query);
 		count = noticeDao.getCount();		

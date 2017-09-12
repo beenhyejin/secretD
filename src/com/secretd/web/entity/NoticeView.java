@@ -7,7 +7,6 @@ public class NoticeView extends Notice{
 	private int countCmt;
 	
 	public NoticeView() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public NoticeView(String id, String title, String content, String writerId, Date regDate, int hit) {
