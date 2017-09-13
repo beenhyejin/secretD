@@ -3,14 +3,15 @@
  
       <aside id="aside">
          
-         <h1>고객센터</h1>
+         <h1>회원가입</h1>
          
          <nav>
-            <h1>고객센터 메뉴</h1>
+            <h1>회원가입 메뉴</h1>
             <ul>
-               <li><a href="">공지사항</a></li>
-               <li><a href="">1:1고객문의</a></li>
-               <li><a href="">학습안내</a></li>
+               <li><a href="login">로그인</a></li>
+               <li><a href="join">회원가입</a></li>
+               <li><a href="idSearch">아이디 찾기</a></li>
+               <li><a href="pwdSearch">비밀번호 재발급</a></li>
             </ul>
          </nav>
       

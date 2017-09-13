@@ -9,6 +9,7 @@ public class Notice {
 	   private String writerId;
 	   private Date regDate;
 	   private int hit;
+	   private String fileName;
 	   
 	   public Notice() {
 	      
@@ -22,9 +23,18 @@ public class Notice {
 	      this.writerId = writerId;
 	      this.regDate = regDate;
 	      this.hit = hit;
+	      this.fileName=fileName;
 	   }
 
-	   public String getId() {
+	   public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public String getId() {
 	      return id;
 	   }
 	   public void setId(String id) {

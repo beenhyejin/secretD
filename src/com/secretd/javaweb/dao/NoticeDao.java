@@ -10,8 +10,8 @@ public interface NoticeDao {
 	List<NoticeView> getList(int page,String query);
 	int getCount();
 	Notice get(String id);
-	void edit(String id, String title, String content);
-	void insert(String title, String content);
-	void delete(String id);
+	int edit(String id, String title, String content,String fileName);
+	int insert(String title, String content,String fileName);
+	int delete(String id);
 	void getHitsCountup(int hits,String id);
 }

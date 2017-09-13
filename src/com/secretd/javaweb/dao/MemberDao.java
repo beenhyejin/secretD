@@ -8,4 +8,10 @@ public interface MemberDao {
 	
 	Member get(String id);
 
+	String get(String name, String email);
+
+	String get(String id, String name, String email);
+
+	int edit(String id, String string);
+
 }

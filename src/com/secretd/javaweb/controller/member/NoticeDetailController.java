@@ -1,4 +1,4 @@
-package com.secretd.web.controller.admin.notice;
+package com.secretd.javaweb.controller.member;
 
 import java.io.IOException;
 
@@ -15,7 +15,7 @@ import com.secretd.web.entity.Notice;
 
 
 
-@WebServlet("/admin/notice/detail")
+@WebServlet("/member/notice/detail")
 public class NoticeDetailController extends HttpServlet{
    @Override
    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {     	   
@@ -28,7 +28,8 @@ public class NoticeDetailController extends HttpServlet{
 	   NoticeDao dao = new JdbcNoticeDao();
 	   Notice n = dao.get(id);
 	   dao.getHitsCountup(n.getHit(),id);
+	   System.out.println(n.getHit());
 		request.setAttribute("detail",n);
-        request.getRequestDispatcher("/WEB-INF/views/admin/notice/detail.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/views/member/notice/detail.jsp").forward(request, response);
    }
 }

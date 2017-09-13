@@ -23,7 +23,7 @@
 			<!-- aside부분 -->
 			<jsp:include page="../inc/aside.jsp" />
 
-			<form method="post">
+			<form method="post" enctype="multipart/form-data">
 				<table class="table">
 
 					<tr>
@@ -43,7 +43,7 @@
 					</tr>
 					<tr>
 						<th>첨부파일</th>
-						<td colspan="3"></td>
+						<td colspan="3"><input type="file" name="file"/>${detail.fileName }</a></td>
 					</tr>
 					<tr>
 						<td colspan="4"><textarea name="content">${detail.content }</textarea>

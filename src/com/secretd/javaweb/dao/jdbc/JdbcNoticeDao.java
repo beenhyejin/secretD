@@ -98,6 +98,7 @@ public class JdbcNoticeDao implements NoticeDao {
 				n.setContent(rs.getString("CONTENT"));
 				n.setRegDate(rs.getDate("REGDATE"));
 				n.setWriterId(rs.getString("WRITERID"));
+				n.setFileName(rs.getString("fileName"));
 			}
 			rs.close();
 			st.close();
@@ -111,8 +112,9 @@ public class JdbcNoticeDao implements NoticeDao {
 	}
 
 	@Override
-	public void edit(String id, String title, String content) {
-		String sql = "UPDATE Notice SET title= ?,content = ? WHERE id = ?";
+	public int edit(String id, String title, String content,String fileName) {
+		int result=0;
+		String sql = "UPDATE Notice SET title= ?,content = ?,fileName=? WHERE id = ?";
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -120,8 +122,10 @@ public class JdbcNoticeDao implements NoticeDao {
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, title);
 			st.setString(2, content);
-			st.setString(3, id);
-			int result = st.executeUpdate();
+			st.setString(3, fileName);
+			st.setString(4, id);
+			result = st.executeUpdate();
+			System.out.println("edit result="+result);
 			st.close();
 			con.close();
 		} catch (ClassNotFoundException e) {
@@ -129,20 +133,25 @@ public class JdbcNoticeDao implements NoticeDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return result;
 	}
 
 	@Override
-	public void insert(String title, String content) {
-		String sql = "INSERT INTO Notice(id,title, content, writerId) VALUES((select ifnull(max(cast(id as signed integer)),0)+1 from Notice as b),?,?,?)";
+	public int insert(String title, String content, String fileName) {
+		int result =0;
+		String sql = "INSERT INTO Notice(id,title, content, writerId,fileName) VALUES((select ifnull(max(cast(id as signed integer)),0)+1 from Notice as b),?,?,?,?)";
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 		try {
+			System.out.println("db에 들어옴");
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection(url, "sist", "cclass");
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, title);
 			st.setString(2, content);
 			st.setString(3, "robin");
-			int result = st.executeUpdate();
+			st.setString(4, fileName);
+			result = st.executeUpdate();
+			System.out.println("result : "+result);
 			st.close();
 			con.close();
 		} catch (ClassNotFoundException e) {
@@ -150,10 +159,12 @@ public class JdbcNoticeDao implements NoticeDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return result;
 	}
 
 	@Override
-	public void delete(String id) {
+	public int delete(String id) {
+		int result=0;
 		String sql = "DELETE FROM Notice WHERE id = ?";
 		String url = "jdbc:mysql://211.238.142.247/newlecture?autoReconnect=true&amp;useSSL=false&characterEncoding=UTF-8";
 		try {
@@ -161,7 +172,7 @@ public class JdbcNoticeDao implements NoticeDao {
 			Connection con = DriverManager.getConnection(url, "sist", "cclass");
 			PreparedStatement st = con.prepareStatement(sql);
 			st.setString(1, id);
-			int result = st.executeUpdate();
+			result = st.executeUpdate();
 			st.close();
 			con.close();
 		} catch (ClassNotFoundException e) {
@@ -169,6 +180,7 @@ public class JdbcNoticeDao implements NoticeDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return result;
 		
 	}
 
@@ -192,4 +204,5 @@ public class JdbcNoticeDao implements NoticeDao {
 			e.printStackTrace();
 		}
 	}
+
 }

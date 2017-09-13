@@ -30,7 +30,7 @@
 			</div>
 			<div>
 				<h3>공지사항 검색 폼</h3>
-				<form action="/customer/notice" method="get">
+				<form method="get">
 					<label>검색어</label> <input type="text" name="title" /> <input
 						type="submit" />
 				</form>
