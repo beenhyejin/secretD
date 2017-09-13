@@ -26,7 +26,7 @@
 	// 아이디 중복체크 화면open
 	function openIdChk() {
 		window.name = "parentForm";
-		window.open("idCheck", "chkForm",
+		window.open("check-id", "chkForm",
 				"width=500, height=300, resizable = no, scrollbars = no");
 	}
 	// 아이디 입력창에 값 입력시 hidden에 idUncheck를 세팅한다.

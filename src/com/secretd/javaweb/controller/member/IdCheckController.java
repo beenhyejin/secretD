@@ -30,9 +30,9 @@ public class IdCheckController extends HttpServlet{
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		
 		String id = request.getParameter("id");
 		System.out.println(id);
+		request.getRequestDispatcher("/WEB-INF/views/member/idCheck.jsp").forward(request, response);
 	}
 
 }
