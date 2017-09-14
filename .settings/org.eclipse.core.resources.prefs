@@ -1,3 +1,5 @@
 eclipse.preferences.version=1
+encoding//src/com/secretd/javaweb/controller/member/NoticeListcontroller.java=UTF-8
 encoding//src/com/secretd/javaweb/dao/jdbc/JdbcNoticeDao.java=UTF-8
 encoding//src/com/secretd/web/controller/admin/notice/NoticeEditController.java=UTF-8
+encoding//src/com/secretd/web/controller/guest/NoticeListcontroller.java=UTF-8

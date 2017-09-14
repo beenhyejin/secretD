@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.secretd.javaweb.dao.NoticeDao;
 import com.secretd.javaweb.dao.jdbc.JdbcNoticeDao;
+import com.secretd.web.entity.Notice;
 import com.secretd.web.entity.NoticeView;
 
 
@@ -27,7 +28,7 @@ public class NoticeListcontroller extends HttpServlet{
 		String query = ""; 
 		if(_query != null && !_query.equals(""))
 			query=_query;
-		List<NoticeView> list= null; 	
+		List<Notice> list= null; 	
 		int count=0;		
 		NoticeDao noticeDao = new JdbcNoticeDao();
 		list = noticeDao.getList(page, query);

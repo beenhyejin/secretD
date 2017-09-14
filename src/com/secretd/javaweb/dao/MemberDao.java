@@ -14,4 +14,6 @@ public interface MemberDao {
 
 	int edit(String id, String string);
 
+	boolean duplicateIdCheck(String id);
+
 }

@@ -50,14 +50,19 @@ public class NoticeRegController extends HttpServlet {
 		path = context.getRealPath(path);
 		System.out.println("path : "+path);
 		MultipartRequest req = new MultipartRequest(request, path, 1024*10124*1000,"UTF-8",new DefaultFileRenamePolicy());//lib -> cos.jar
-		
-		
-		System.out.println("regpost에 들어옴");
 		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		HttpSession session =request.getSession();
 		
+		Object _id = session.getAttribute("id");
+		String id="";
 		String title = req.getParameter("title");
 		System.out.println("Notice title: "+title);
 		String content = req.getParameter("content");
+		if(_id!=null)
+			id = _id.toString();
 		/*
 		String fname;
 		Enumeration en = req.getFileNames();	
@@ -70,10 +75,14 @@ public class NoticeRegController extends HttpServlet {
 		//String fileName = req.getParameter("file");
 		//Model
 		NoticeDao dao = new JdbcNoticeDao();
-		int result =dao.insert(title, content,fileName);
+		int result =dao.insert(title, content,fileName,id);
 		if(result == 1)
 			response.sendRedirect("list");
-		//else
-			
+		else {
+			out.println("<script language='javascript'>");
+			out.println("alert('파일이 업로드 되지 않았습니다.\n 다시 시도해주세요!'); history.go(-1);");
+			out.println("</script>");
+			out.flush();
+		}
 	}
 }

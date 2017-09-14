@@ -22,7 +22,7 @@ public class joinController extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-
+		
 		String id = "";
 		String pwd = "";
 		String name = "";
@@ -68,13 +68,10 @@ public class joinController extends HttpServlet {
 			int result = memberDao.insert(id, pwd, name, email, nickname);
 			System.out.println("result" + result);
 			if (result == 1)
-				response.sendRedirect("sucess");
+				response.sendRedirect("login");//회원가입 성공했어@@@
 			else{
-				System.out.println("db회원가입 실패");
-				out.println("<script language='javascript'>");
-				out.println("alert('죄송합니다. 회원가입중 오류가 생겼습니다.\n 다시 시도해주세요.'); history.go(-1);");
-				out.println("</script>");
-				out.flush();
+				request.getRequestDispatcher("/WEB-INF/views/member/join.jsp").forward(request, response);
+				
 			}
 		}
 		else if (!_pwds[0].equals(_pwds[1])&& !_pwds[0].equals("")&& !_pwds[1].equals("")) {
@@ -84,6 +81,7 @@ public class joinController extends HttpServlet {
 			out.println("</script>");
 			out.flush();
 		}
+		
 
 	}
 

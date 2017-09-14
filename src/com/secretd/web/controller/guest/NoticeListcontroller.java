@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.secretd.javaweb.dao.NoticeDao;
 import com.secretd.javaweb.dao.jdbc.JdbcNoticeDao;
-import com.secretd.web.entity.NoticeView;
+import com.secretd.web.entity.Notice;
 
 
 
@@ -19,16 +19,16 @@ import com.secretd.web.entity.NoticeView;
 public class NoticeListcontroller extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int page = 1; //기본�?		
+		int page = 1; //기본�?		
 		String  _page = request.getParameter("p"); 	
 		if(_page != null && !_page.equals(""))
 			page=Integer.parseInt(_page);	
 		String  _query = request.getParameter("title"); 
-		String query = ""; // 기본�?
+		String query = ""; // 기본�?
 		if(_query != null && !_query.equals(""))
 			query=_query;
 		//------------------출력-----------------
-		List<NoticeView> list= null; 
+		List<Notice> list= null; 
 		int count=0;		
 		//---------------DB(DAO)--------------------
 		NoticeDao noticeDao = new JdbcNoticeDao();
